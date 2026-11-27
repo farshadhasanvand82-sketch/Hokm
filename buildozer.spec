@@ -34,6 +34,9 @@ android.permissions = INTERNET
 android.api = 34
 android.minapi = 21
 
+# تایید خودکار لایسنس SDK
+android.accept_sdk_license = True
+
 # معماری‌های پردازنده اندروید
 android.archs = arm64-v8a
 
