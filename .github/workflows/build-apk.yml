@@ -38,7 +38,9 @@ jobs:
           pip install --break-system-packages buildozer cython==0.29.36
 
       - name: Build Android APK
-        run: buildozer android debug
+        env:
+          YES_TO_ALL: "1"
+        run: yes | buildozer android debug
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
