@@ -22,7 +22,7 @@ jobs:
       - name: Install system dependencies for Buildozer
         run: |
           sudo apt-get update
-          sudo apt-get install -y git zip unzip openjdk-17-jdk python3-pip python3-setuptools autoconf libtool pkg-config zlib1g-dev libncurses-dev cmake libffi-dev libssl-dev libsqlite3-dev lld patchelf
+          sudo apt-get install -y git zip unzip openjdk-17-jdk python3-pip python3-setuptools autoconf automake libtool libtool-bin pkg-config zlib1g-dev libncurses-dev cmake libffi-dev libssl-dev libsqlite3-dev lld patchelf
 
       - name: Cache buildozer and gradle
         uses: actions/cache@v4
@@ -30,7 +30,7 @@ jobs:
           path: |
             ~/.buildozer
             ~/.gradle
-          key: buildozer-${{ runner.os }}-${{ hashFiles('buildozer.spec') }}
+          key: buildozer-v3-${{ runner.os }}-${{ hashFiles('buildozer.spec') }}
 
       - name: Install Buildozer and Cython
         run: |
@@ -40,7 +40,9 @@ jobs:
       - name: Build Android APK
         env:
           YES_TO_ALL: "1"
-        run: yes | buildozer android debug
+          ANDROIDSDK_ACCEPT_LICENSES: "y"
+          P4A_RELEASE_KEYSTORE_PASSWD: ""
+        run: buildozer android debug
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
