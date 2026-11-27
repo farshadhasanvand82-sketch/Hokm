@@ -19,7 +19,7 @@ source.include_exts = py,png,jpg,kv,atlas,ttf
 version = 1.0.0
 
 # وابستگی‌های پایتون برای اندروید
-requirements = python3==3.11,kivy==2.3.1
+requirements = python3,kivy
 
 # جهت صفحه
 orientation = landscape
