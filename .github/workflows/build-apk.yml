@@ -30,7 +30,7 @@ jobs:
           path: |
             ~/.buildozer
             ~/.gradle
-          key: buildozer-v5-${{ runner.os }}-${{ hashFiles('buildozer.spec') }}
+          key: buildozer-v6-${{ runner.os }}-${{ hashFiles('buildozer.spec') }}
 
       - name: Install Buildozer and Cython
         run: |
