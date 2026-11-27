@@ -19,7 +19,7 @@ source.include_exts = py,png,jpg,kv,atlas,ttf
 version = 1.0.0
 
 # وابستگی‌های پایتون برای اندروید
-requirements = python3,kivy
+requirements = python3==3.11,kivy==2.3.1
 
 # جهت صفحه
 orientation = landscape
@@ -35,7 +35,7 @@ android.api = 34
 android.minapi = 21
 
 # معماری‌های پردازنده اندروید
-android.archs = arm64-v8a, armeabi-v7a
+android.archs = arm64-v8a
 
 [buildozer]
 log_level = 2
