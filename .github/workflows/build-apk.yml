@@ -30,7 +30,7 @@ jobs:
           path: |
             ~/.buildozer
             ~/.gradle
-          key: buildozer-v3-${{ runner.os }}-${{ hashFiles('buildozer.spec') }}
+          key: buildozer-v4-${{ runner.os }}-${{ hashFiles('buildozer.spec') }}
 
       - name: Install Buildozer and Cython
         run: |
@@ -38,11 +38,9 @@ jobs:
           pip install --break-system-packages buildozer cython==0.29.36
 
       - name: Build Android APK
-        env:
-          YES_TO_ALL: "1"
-          ANDROIDSDK_ACCEPT_LICENSES: "y"
-          P4A_RELEASE_KEYSTORE_PASSWD: ""
-        run: buildozer android debug
+        run: |
+          set -o pipefail
+          yes | buildozer android debug
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
